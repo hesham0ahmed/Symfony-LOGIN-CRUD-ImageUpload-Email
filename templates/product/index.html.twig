@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block body %}
+
+
+<div class="container my-5">
+    <h1 class="text-center">symfony console make:crud</h1>
+    <p class="text-center">make your own CRUD with CMD in Symfony</p>
+
+    <div class="album py-5">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for product in products %}
+                <div class="col">
+                    <div class="card shadow-sm">
+
+                        <img src="{{product.picture}}" class="w-100" alt="...">
+                        <div class="card-body">
+
+                            <p class="card-text">Name: <b>{{ product.name }}</b></p>
+
+
+                            <p class="card-text"> Description: <b>{{ product.description }} </b></p>
+
+
+                            <p class="card-text"> ID: <b>{{ product.id }} </b></p>
+
+                            <p class="card-text"> Date: <b>{{ product.date ? product.date|date('Y-m-d ') : ''
+                                    }}</b></p>
+
+                            <p class="card-text"> Categorie: <b>{{ product.categorie }}</b></p>
+
+
+                            <p class="card-text">Price: <b>{{ product.price }} $</b></p>
+
+
+
+
+
+
+                            <div class="btn-group">
+                                <a href="{{ path('app_product_show', {'id': product.id}) }}"
+                                    class="btn btn-sm btn-primary">show</a>
+                                <a href="{{ path('app_product_edit', {'id': product.id}) }}"
+                                    class="btn btn-sm btn-outline-secondary">edit</a>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+                {% else %}
+
+                <p colspan="8">no records found</p>
+
+                {% endfor %}
+
+
+
+
+            </div><a class="btn btn-success my-3 d-flex justify-content-center" href="{{ path('app_product_new') }}">Create new</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
