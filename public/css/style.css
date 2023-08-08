@@ -5,4 +5,13 @@
 
 label {
   font-weight: 600;
+  /* color: red; */
+}
+
+.delete-checkbox {
+  /* height: 10px; */
+  margin: 15px;
+  width: 14px;
+  height: 14px;
+
 }

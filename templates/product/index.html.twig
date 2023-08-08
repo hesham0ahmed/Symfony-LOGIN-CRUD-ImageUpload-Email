@@ -7,7 +7,7 @@
 
 <div class="container my-5">
     <h1 class="text-center">symfony console make:crud</h1>
-    <p class="text-center">make your own CRUD with CMD in Symfony</p>
+    <p class="text-center">make your own CRUD with CMD in Symfony with FileUpload</p>
 
     <div class="album py-5">
         <div class="container">
@@ -17,7 +17,7 @@
                 <div class="col">
                     <div class="card shadow-sm">
 
-                        <img src="{{product.picture}}" class="w-100" alt="...">
+                        <img src="{{ asset('pictures/' ~ product.imageName) }}" class="w-100" alt="...">
                         <div class="card-body">
 
                             <p class="card-text">Name: <b>{{ product.name }}</b></p>
@@ -35,6 +35,8 @@
 
 
                             <p class="card-text">Price: <b>{{ product.price }} $</b></p>
+
+                            <p class="card-text">Status: <b>{{ product.fkStatus.status }}</b></p>
 
 
 
@@ -63,7 +65,8 @@
 
 
 
-            </div><a class="btn btn-success my-3 d-flex justify-content-center" href="{{ path('app_product_new') }}">Create new</a>
+            </div><a class="btn btn-success my-3 d-flex justify-content-center"
+                href="{{ path('app_product_new') }}">Create new</a>
         </div>
     </div>
 </div>

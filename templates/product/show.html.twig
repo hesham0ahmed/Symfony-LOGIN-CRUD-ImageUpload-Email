@@ -26,7 +26,7 @@
             </tr>
             <tr>
                 <th>Picture</th>
-                <td><img src="{{product.picture}}" class="w-50" alt="..."></td>
+                <td><img src="{{ asset('pictures/' ~ product.imageName) }}" class="w-50" alt="..."></td>
             </tr>
             <tr>
                 <th>Date</th>
@@ -35,6 +35,10 @@
             <tr>
                 <th>Categorie</th>
                 <td>{{ product.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ product.fkStatus.status }}</td>
             </tr>
         </tbody>
     </table>
