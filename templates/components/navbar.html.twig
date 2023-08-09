@@ -8,46 +8,98 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">Home</a>
-                </li>
+               
 
-                <div class="dropdown">
+                {# <div class="dropdown">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                         aria-expanded="false" data-bs-auto-close="outside">
-                        Login
+                        User
                     </button>
                     <form class="dropdown-menu p-4" style="width: 300px;">
                         <div class="mb-3">
                             <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleDropdownFormEmail2"
+                            <input type="email" disabled="disabled" class="form-control" id="exampleDropdownFormEmail2"
                                 placeholder="email@example.com">
                         </div>
                         <div class="mb-3">
                             <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="exampleDropdownFormPassword2"
-                                placeholder="Password">
+                            <input type="password" disabled="disabled" class="form-control"
+                                id="exampleDropdownFormPassword2" placeholder="Password">
                         </div>
                         <div class="mb-3">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+                                <input type="checkbox" disabled="disabled" class="form-check-input" id="dropdownCheck2">
                                 <label class="form-check-label" for="dropdownCheck2">
                                     Remember me
                                 </label>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Sign in</button>
+                        <button type="submit" disabled="disabled" class="btn btn-primary">Sign in</button>
+                        {% if app.user %}
+                        <div class=" text-center my-3 ">
+                            Logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                        {% endif %}
                     </form>
-                </div>
-                <li class="nav-item">
-                    <div></div>
-                </li>
 
+                </div> #}
+              
+              
+               
+
+
+                {% if is_granted("ROLE_ADMIN") %}
                 <li class="nav-item">
-                    <a class="nav-link" href="/new">ADD Product</a>
+                    <a class="nav-link" aria-current="page" href="/product">Home</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="new">ADD Product</a>         
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li> 
+
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false" data-bs-auto-close="outside">
+                        ADMIN
+                    </button>
+                    <form class="dropdown-menu p-4" style="width: 300px;">
+
+                    {% elseif is_granted("ROLE_USER") %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/user">Home</a>
+                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                <div class="dropdown">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false" data-bs-auto-close="outside">
+                        User
+                    </button>
+                    <form class="dropdown-menu p-4" style="width: 300px;">
+             
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                {% endif %}
+               
+                {% if app.user %}
+                <div class=" text-center my-3 ">
+                    Logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+                {% endif %}
+            </form>
+
+        </div>
+      
+
+               
 
             </ul>
+
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
                 <button class="btn btn-outline-white" type="submit">Search</button>

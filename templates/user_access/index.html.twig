@@ -1,15 +1,13 @@
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Product index{% endblock %}
 
 {% block body %}
-{% if is_granted("ROLE_ADMIN") %}
 
 
 <div class="container my-5">
     <h1 class="text-center">symfony console make:crud</h1>
-    <p class="text-center">make your own CRUD with CMD in Symfony with FileUpload</p>
+    <p class="text-center">make your own CRUD with CMD in Symfony with FileUpload and User/Admin Login</p>
 
     <div class="album py-5">
         <div class="container">
@@ -48,8 +46,7 @@
                             <div class="btn-group">
                                 <a href="{{ path('app_product_show', {'id': product.id}) }}"
                                     class="btn btn-sm btn-primary">show</a>
-                                <a href="{{ path('app_product_edit', {'id': product.id}) }}"
-                                    class="btn btn-sm btn-outline-secondary">edit</a>
+                            
                             </div>
 
 
@@ -67,8 +64,7 @@
 
 
 
-            </div><a class="btn btn-success my-3 d-flex justify-content-center"
-                href="{{ path('app_product_new') }}">Create new</a>
+            </div>
         </div>
     </div>
 </div>
@@ -76,11 +72,5 @@
 
 
 
-    {% elseif is_granted("ROLE_USER") %}
-              
-   <div class="container text-center my-5"><h4> Nothing to shown Here as a User, dont play around !</h4></div>
-                {% else %}
-                <div class="container text-center my-5"><h4>   Nothing to shown Here as a Not Registered User, dont play around !</h4></div>
-                {% endif %}
-{% endblock %}
 
+{% endblock %}

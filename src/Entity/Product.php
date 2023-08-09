@@ -26,8 +26,8 @@ class Product
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $picture = null;
+    // #[ORM\Column(length: 255)]
+    // private ?string $picture = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
@@ -94,17 +94,17 @@ class Product
         return $this;
     }
 
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
+    // public function getPicture(): ?string
+    // {
+    //     return $this->picture;
+    // }
 
-    public function setPicture(string $picture): static
-    {
-        $this->picture = $picture;
+    // public function setPicture(string $picture): static
+    // {
+    //     $this->picture = $picture;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getDate(): ?\DateTimeInterface
     {

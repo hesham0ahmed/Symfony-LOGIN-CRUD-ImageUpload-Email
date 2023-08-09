@@ -43,10 +43,16 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_product_index') }}" class="btn btn-secondary">back to list</a>
-
+    <a href="{{ path('app_product_index') }}" class="btn btn-secondary my-3">back to list</a>
+    {% if is_granted("ROLE_ADMIN") %}
     <a href="{{ path('app_product_edit', {'id': product.id}) }}" class="btn btn-warning">edit</a>
 
     {{ include('product/_delete_form.html.twig') }}
+    {% elseif is_granted("ROLE_USER") %}
+    
+    {% else %}
+  
+    {% endif %}
+   
 </div>
 {% endblock %}
