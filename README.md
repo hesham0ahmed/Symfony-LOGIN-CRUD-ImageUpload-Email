@@ -9,6 +9,11 @@
 
 [![Symfony - FileUpload](https://img.shields.io/badge/Symfony-FileUpload-2ea44f?logo=symfony)](https://symfony.com)
 
+using VichUploaderBundle
 ![upload](https://github.com/hesham0ahmed/Symfony-CRUD-Upload-image/assets/133360711/d0d313e0-21b9-4092-b697-0d90161b4250)
 
-using VichUploaderBundle
+
+
+[![Symfony - FileUpload](https://img.shields.io/badge/Symfony-EditProfile-2ea44f?logo=symfony)](https://symfony.com)
+
+![edit](https://github.com/hesham0ahmed/Symfony-LOGIN-CRUD-Upload-image/assets/133360711/f9268f8b-c609-4997-a6e5-487a08d15638)
