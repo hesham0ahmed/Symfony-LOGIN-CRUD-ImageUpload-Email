@@ -3,6 +3,7 @@
 {% block title %}Product{% endblock %}
 
 {% block body %}
+{% if is_granted("ROLE_ADMIN") %}
 <div class="container">
     <h1 class="text-center my-3">Product</h1>
 
@@ -42,6 +43,52 @@
             </tr>
         </tbody>
     </table>
+{% elseif is_granted("ROLE_USER") %}
+<div class="container">
+    <h1 class="text-center my-3">Product</h1>
+
+    <table class="table table-dark table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ product.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ product.description }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ product.price }} $</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td><img src="{{ asset('pictures/' ~ product.imageName) }}" class="w-50" alt="..."></td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ product.date ? product.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ product.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ product.fkStatus.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% else %}
+  <div class="container text-center">
+    <h3 class="my-5">You are not Logged in !</h3>
+  </div>
+{% endif %}
+
 
     
     {% if is_granted("ROLE_ADMIN") %}

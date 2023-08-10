@@ -78,9 +78,9 @@
 
     {% elseif is_granted("ROLE_USER") %}
               
-   <div class="container text-center my-5"><h4> Nothing to shown Here as a User, dont play around !</h4></div>
+   <div class="container text-center my-5"><h4> You are not Logged in !</h4></div>
                 {% else %}
-                <div class="container text-center my-5"><h4>   Nothing to shown Here as a Not Registered User, dont play around !</h4></div>
+                <div class="container text-center my-5"><h4>   You are not Logged in !</h4></div>
                 {% endif %}
 {% endblock %}
 

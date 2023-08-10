@@ -4,7 +4,7 @@
 
 {% block body %}
 
-
+{% if is_granted("ROLE_ADMIN") %}
 <div class="container my-5">
     <h1 class="text-center">Edit my Profile</h1>
 
@@ -16,23 +16,16 @@
                 <div class="col">
                     <div class="card shadow-sm">
 
-                        {# <img src="{{ asset('pictures/' ~ user.picture) }}" class="w-100" alt="..."> #}
-                        <div class="card-body">
+                            <div class="card-body">
 
-                            {# <p class="card-text">Name: <b>{{ user.fname }} {{ user.lname }}</b></p>
-
-                            <p class="card-text"> ID: <b>{{ user.id }} </b></p>
-
-                            <p class="card-text"> Email: <b>{{ user.email }}</b></p> #}
                             <form action="{{ path('profile') }}" method="POST">
                                
-                           
                             {{ form_start(editForm) }}
                             {{ form_row(editForm.fname) }}
                             {{ form_row(editForm.lname) }}
                             <button type="submit" class="btn btn-primary my-3">Save Changes</button>
                             {{ form_end(editForm) }}
- </form>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -40,6 +33,43 @@
         </div>
     </div>
 </div>
+
+    {% elseif is_granted("ROLE_USER") %}
+    <div class="container my-5">
+        <h1 class="text-center">Edit my Profile</h1>
+    
+        <div class="album py-5">
+            <div class="container">
+    
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 d-flex justify-content-center">
+                
+                    <div class="col">
+                        <div class="card shadow-sm">
+    
+                                <div class="card-body">
+    
+                                <form action="{{ path('profile') }}" method="POST">
+                                   
+                                {{ form_start(editForm) }}
+                                {{ form_row(editForm.fname) }}
+                                {{ form_row(editForm.lname) }}
+                                <button type="submit" class="btn btn-primary my-3">Save Changes</button>
+                                {{ form_end(editForm) }}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% else %}
+    <div class="container text-center">
+        <h3 class="my-5">You are not Logged in !</h3>
+      </div>
+    {% endif %}
+
 
 
 
