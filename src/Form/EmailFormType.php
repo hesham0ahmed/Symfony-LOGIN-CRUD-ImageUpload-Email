@@ -18,7 +18,9 @@ class EmailFormType extends AbstractType
   {
     $builder
       ->add('from', EmailType::class, [
-        'attr' => ['class' => 'form-control']
+        'attr' => ['class' => 'form-control'],
+        'data' => 'symfonydeveloper00@gmail.com',
+        'disabled' => true
       ])
       ->add('to', EmailType::class, [
         'attr' => ['class' => 'form-control']
