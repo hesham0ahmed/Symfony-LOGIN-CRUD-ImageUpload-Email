@@ -7,12 +7,14 @@
 ### ADMIN can CRUD --> USER only READ
 ---
 
-[![Symfony - FileUpload](https://img.shields.io/badge/Symfony-FileUpload-2ea44f?logo=symfony)](https://symfony.com)
+[![Symfony - FileUpload](https://img.shields.io/badge/Symfony-FileUpload_/_VichUploaderBundle-2ea44f?logo=symfony)](https://symfony.com)
 
-using VichUploaderBundle
+
 ![upload](https://github.com/hesham0ahmed/Symfony-CRUD-Upload-image/assets/133360711/d0d313e0-21b9-4092-b697-0d90161b4250)
 
-
+---
+### USER can Edit his Profile
+---
 
 [![Symfony - FileUpload](https://img.shields.io/badge/Symfony-EditProfile-2ea44f?logo=symfony)](https://symfony.com)
 
