@@ -16,6 +16,16 @@
 ### USER can Edit his Profile
 ---
 
-[![Symfony - FileUpload](https://img.shields.io/badge/Symfony-EditProfile-2ea44f?logo=symfony)](https://symfony.com)
+[![Symfony - EditProfile](https://img.shields.io/badge/Symfony-EditProfile-2ea44f?logo=symfony)](https://symfony.com)
 
 ![edit](https://github.com/hesham0ahmed/Symfony-LOGIN-CRUD-Upload-image/assets/133360711/f9268f8b-c609-4997-a6e5-487a08d15638)
+
+---
+### USER can Send a Email
+---
+
+[![Symfony - SendEmail](https://img.shields.io/badge/Symfony-Send_Email-2ea44f?logo=symfony)](https://symfony.com)
+
+![email](https://github.com/hesham0ahmed/Symfony-LOGIN-CRUD-Upload-image/assets/133360711/e823ee2d-1bf3-4fe0-8496-c61af2073fb4)
+
+
