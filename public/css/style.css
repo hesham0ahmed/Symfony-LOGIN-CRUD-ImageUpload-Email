@@ -15,3 +15,15 @@ label {
   height: 14px;
 
 }
+
+.status-open {
+  color: red;
+}
+
+.status-done {
+  color: blue;
+}
+
+.status-pending {
+  color: yellow;
+}

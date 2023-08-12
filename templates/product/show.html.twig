@@ -4,6 +4,19 @@
 
 {% block body %}
 {% if is_granted("ROLE_ADMIN") %}
+<style>
+    .status-open {
+  color: red;
+}
+
+.status-done {
+  color: green;
+}
+
+.status-pending {
+  color: royalblue;
+}
+</style>
 <div class="container">
     <h1 class="text-center my-3">Product</h1>
 
@@ -27,7 +40,7 @@
             </tr>
             <tr>
                 <th>Picture</th>
-                <td><img src="{{ asset('pictures/' ~ product.imageName) }}" class="w-50" alt="..."></td>
+                <td><img src="{{ asset('pictures/' ~ product.imageName) }}" class="w-50 rounded" alt="..."></td>
             </tr>
             <tr>
                 <th>Date</th>
@@ -39,7 +52,7 @@
             </tr>
             <tr>
                 <th>Status</th>
-                <td>{{ product.fkStatus.status }}</td>
+                <td class="card-text"><b class="{% if product.fkStatus.status == 'Open' %}status-open{% elseif product.fkStatus.status == 'Done' %}status-done{% elseif product.fkStatus.status == 'Pending' %}status-pending{% else %}status-default{% endif %}">{{ product.fkStatus.status }}</b></td>
             </tr>
         </tbody>
     </table>
@@ -79,7 +92,7 @@
             </tr>
             <tr>
                 <th>Status</th>
-                <td>{{ product.fkStatus.status }}</td>
+                <td class="card-text"><b class="{% if product.fkStatus.status == 'Open' %}status-open{% elseif product.fkStatus.status == 'Done' %}status-done{% elseif product.fkStatus.status == 'Pending' %}status-pending{% else %}status-default{% endif %}">{{ product.fkStatus.status }}</b></td>
             </tr>
         </tbody>
     </table>

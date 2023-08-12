@@ -6,6 +6,19 @@
 {% block body %}
 {% if is_granted("ROLE_ADMIN") %}
 
+<style>
+    .status-open {
+  color: red;
+}
+
+.status-done {
+  color: green;
+}
+
+.status-pending {
+  color: royalblue;
+}
+</style>
 
 <div class="container my-5">
     <h1 class="text-center">symfony console make:crud</h1>
@@ -38,7 +51,7 @@
 
                             <p class="card-text">Price: <b>{{ product.price }} $</b></p>
 
-                            <p class="card-text">Status: <b>{{ product.fkStatus.status }}</b></p>
+                            <p class="card-text">Status: <b class="{% if product.fkStatus.status == 'Open' %}status-open{% elseif product.fkStatus.status == 'Done' %}status-done{% elseif product.fkStatus.status == 'Pending' %}status-pending{% else %}status-default{% endif %}">{{ product.fkStatus.status }}</b></p>
 
 
 

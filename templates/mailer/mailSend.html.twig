@@ -8,13 +8,9 @@
 
 
 {% if is_granted("ROLE_ADMIN") %}
-<div class="container text-center">
-  <h3 class="my-5">Email Sended !</h3>
-</div>
+
 {% elseif is_granted("ROLE_USER") %}
-<div class="container text-center">
-  <h3 class="my-5">Email Sended !</h3>
-</div>
+
 {% else %}
   <div class="container text-center">
     <h3 class="my-5">You are not Logged in !</h3>

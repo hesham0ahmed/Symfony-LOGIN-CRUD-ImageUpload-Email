@@ -37,7 +37,7 @@ class MailerController extends AbstractController
             } catch (TransportExceptionInterface $error) {
                 $this->addFlash('error', 'Error sending email: ' . $error->getMessage());
             } {
-                return $this->redirectToRoute('app_email_send'); // Redirect user to /user
+                return $this->redirectToRoute('app_email_send1'); // Redirect user to /user
             }
         }
 
@@ -46,6 +46,17 @@ class MailerController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/mailer/mailSendNotice', name: 'app_email_send1')]
+    public function noticeSended(Request $request): Response
+    {
+
+        return $this->render('mailer/mailSendNotice.html.twig', [
+            'controller_name' => 'MailerController',
+
+        ]);
+    }
+
     #[Route('/mailer/mailSend', name: 'app_email_send')]
     public function sended(Request $request): Response
     {

@@ -16,7 +16,7 @@
 
     function resetIdleTimeout() {
         clearTimeout(idleTimeout);
-        idleTimeout = setTimeout(logout, 10000); // Logout after 5 minutes of inactivity
+        idleTimeout = setTimeout(logout, 50000); // Logout after 5 minutes of inactivity
     }
 
     function logout() {
